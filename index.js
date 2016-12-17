@@ -57,7 +57,7 @@ function sendMessage(recipientId, message) {
 function parseToStringType(text) {
 	var stringType = ["SOCIAL", "DISEASE", "SOLUTION", "GOSSIP"];
 	switch(true) {
-    case (text.indexOf("Hi")!=-1):
+    case text.indexOf("Hi")!=-1||text.indexOf("Hello")!=-1||text.indexOf("Good Morning")!=-1||text.indexOf("Good Afternoon")!=-1||text.indexOf("Good Evening")!=-1:
         return stringType[0]; 
         break;
     default:
