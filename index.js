@@ -35,7 +35,7 @@ app.post('/webhook', function (req, res) {
 			if(event.message.attachments[0].type === "image"){
 			 var imageURL = event.message.attachments[0].payload.url;
 			 sendMessage(event.sender.id, {text:"Analysing picture. Please be patient this may take up to few minutes."});
-			 var interval = setInterval(function() {
+			 var interval = setTimeout(function() {
 			 sendMessage(event.sender.id, {text:"This is transitory yellowing decease!"});
 			 }, 12000);
 			}
@@ -72,6 +72,9 @@ function parseToStringType(text) {
         break;
     case text.toLowerCase().indexOf("help")!=-1||text.toLowerCase().indexOf("problem")!=-1||text.toLowerCase().indexOf("decease")!=-1||text.toLowerCase().indexOf("happen")!=-1:
         return stringType[1]; 
+        break;
+	case text.toLowerCase().indexOf("solution")!=-1||text.toLowerCase().indexOf("fix")!=-1:
+        return stringType[2]; 
         break;
 	default:
 		return stringType[3]; 
