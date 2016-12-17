@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
 				sendMessage(event.sender.id, {text: event.message.text});
 			 }
         }
-
+		if (event.message.attachment) {
 		//Checking if there are any image attachments 
 			if(event.message.attachments[0].type === "image"){
 			 var imageURL = event.message.attachments[0].payload.url;
