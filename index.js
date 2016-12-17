@@ -36,7 +36,7 @@ app.post('/webhook', function (req, res) {
 			 var imageURL = event.message.attachments[0].payload.url;
 			 sendMessage(event.sender.id, {text:"This is transitory yellowing decease!"});
 			}
-	   
+	   }
 	}
     res.sendStatus(200);
 });
