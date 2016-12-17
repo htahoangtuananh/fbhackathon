@@ -83,7 +83,6 @@ function receivedMessage(event) {
   }
 }
 
-const token = "EAAFdC39PRSABABz2hGdaKuCHYPhZAwooVGkDDRomFikCHpmZBTfoiJiDxrM4tZB96ThOVT5waBeE7OpQWyffkS0OBjdGDrnq99N2PRmxNhj2liJLZBKSwmfJgnS2nXNJBZBoSlccdwImeMYuYvgb4y2QeEN2J6oM7G4GcIjZCNQQZDZD"
 
 function sendTextMessage(recipientId, messageText) {
   var messageData = {
@@ -100,11 +99,13 @@ function sendTextMessage(recipientId, messageText) {
 
 function callSendAPI(messageData) {
   request({
-    uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { access_token:process.env.PAGE_ACCESS_TOKEN},
     method: 'POST',
-    json: messageData
-
+    json: {
+            recipient: {id: recipientId},
+            message: message,
+        }
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var recipientId = body.recipient_id;
