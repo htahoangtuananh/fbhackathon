@@ -78,9 +78,9 @@ function social(recipientId, text) {
     
 	if(text.toLowerCase().indexOf('Hello')!=-1||text.toLowerCase().indexOf('Hi')!=-1||text.toLowerCase().indexOf('Good Evening')!=-1||text.toLowerCase().indexOf('Good Morning')!=-1||text.toLowerCase().indexOf('Good Afternoon')!=-1)
 	{
-			var user=getGender(recipientId);
+			
 			message={
-				"text":"Welcome"+user
+				"text":"Welcome sir"
 			}
 			sendMessage(recipientId, message);
 			return true;
