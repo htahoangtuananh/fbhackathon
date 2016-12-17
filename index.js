@@ -56,21 +56,33 @@ function sendMessage(recipientId, message) {
 
 function parseToStringType(text) {
 	var stringType = ["SOCIAL", "DISEASE", "SOLUTION", "GOSSIP"];
-	
-	
+	text = text || "";
+	switch(text) {
+    case (text.toLowerCase().indexOf("Hi")||text.toLowerCase().indexOf("Hello")||text.toLowerCase().indexOf("Good Morning")||text.toLowerCase().indexOf("Good Afternoon")||text.toLowerCase().indexOf("Good Evening")):
+        return stringType[0]; 
+        break;
+    default:
+        default return stringType[3]; 
+} 
 }
 
 function social(recipientId, text) {
-     text = text || "";
-	 var values = text.split(' ');
-    if (values.length === 3 && values[0] === 'kitten') {   
+    var type = parseToStringType(text);
+    if (type===0) {   
             message = {
-               "text":"welcome sir"
+               "text":"welcome sir, how may I be of assistance?"
             };
             sendMessage(recipientId, message);
             return true;
         
-    }
+    }else if(type===4){
+		message = {
+               "text":"Lovely weather today sir"
+            };
+            sendMessage(recipientId, message);
+            return true;
+		
+	}
     
     return false;
     
