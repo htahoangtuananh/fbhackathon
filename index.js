@@ -60,10 +60,7 @@ function getGender() {
         url: "https://graph.facebook.com/v2.6/me",
         qs: {access_token:token},
         method: 'GET',
-        json: {
-            field:'first_name,last_name,gender,profile_pic',
-        }		
-		
+
 },function(error, response, body) {
         if (error) {
             console.log('Error sending message: ', error);
@@ -78,8 +75,7 @@ function social(recipientId, text) {
     
 	if(text.toLowerCase().indexOf('Hello')!=-1||text.toLowerCase().indexOf('Hi')!=-1||text.toLowerCase().indexOf('Good Evening')!=-1||text.toLowerCase().indexOf('Good Morning')!=-1||text.toLowerCase().indexOf('Good Afternoon')!=-1)
 	{
-			var user=getGender();
-			message="Welcome"+user;
+			message="Welcome sir, how may i be of assistance?";
 			sendMessage(recipientId, message);
 			return true;
 	}
