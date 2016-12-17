@@ -63,6 +63,7 @@ function parseToStringType(text) {
         break;
     default:
 		return stringType[3]; 
+		break;
 } 
 }
 
