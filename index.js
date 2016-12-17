@@ -34,7 +34,7 @@ app.post('/webhook', function (req, res) {
 		//Checking if there are any image attachments 
 			if(event.message.attachments[0].type === "image"){
 			 var imageURL = event.message.attachments[0].payload.url;
-			 sendMessage(event.sender.id, {text:imageURL});
+			 sendMessage(event.sender.id, {text:"This is transitory yellowing decease!"});
 			}
 	   }
 	}
