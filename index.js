@@ -61,8 +61,15 @@ function getGender() {
         json: {
             gender:gender,
         }		
-		return json;
-}
+		
+}function(error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+return json;
 }
 
 function social(recipientId, text) {
