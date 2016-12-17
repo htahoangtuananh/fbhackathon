@@ -61,7 +61,7 @@ function social(recipientId, text) {
 	 var values = text.split(' ');
     if (values.length === 3 && values[0] === 'kitten') {   
             message = {
-               "text":"welcome sir";
+               "text":"welcome sir"
             };
 
             sendMessage(recipientId, message);
