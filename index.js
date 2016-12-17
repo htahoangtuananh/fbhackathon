@@ -58,16 +58,19 @@ function sendMessage(recipientId, message) {
 
 function social(recipientId, text) {
      text = text || "";
-	
-	if(text.indexOf("Hi")||text.indexOf("Hello")){
+	 var values = text.split(' ');
+    if (values.length === 3 && values[0] === 'Hi') {   
             message = {
                "text":"welcome sir"
             };
             sendMessage(recipientId, message);
             return true;
-    }else
-	return false;
-
+        
+    }
+    
+    return false;
+    
+    
 };
 
 
