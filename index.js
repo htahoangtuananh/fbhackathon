@@ -35,7 +35,6 @@ app.post('/webhook', function (req, res) {
 			if(event.message.attachments[0].type === "image"){
 			 var imageURL = event.message.attachments[0].payload.url;
 			 sendMessage(event.sender.id, {text:"Analysing picture. Please be patient this may take up to few minutes."});
-			 function myFunction() {
 			 var interval = setInterval(function() {
 			 sendMessage(event.sender.id, {text:"This is transitory yellowing decease!"});
 			 }, 12000);
