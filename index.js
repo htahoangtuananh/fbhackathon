@@ -65,7 +65,6 @@ function social(recipientId, text) {
             };
 
             sendMessage(recipientId, message);
-            
             return true;
         
     }
