@@ -57,11 +57,11 @@ function sendMessage(recipientId, message) {
 
 function getGender() {
 	request({
-        url: 'https://graph.facebook.com/v2.6/{user-id}',
+        url: "https://graph.facebook.com/v2.6/me",
         qs: {access_token:token},
         method: 'GET',
         json: {
-            gender:gender,
+            field:'first_name,last_name,gender,profile_pic',
         }		
 		
 },function(error, response, body) {
@@ -78,8 +78,8 @@ function social(recipientId, text) {
     
 	if(text.toLowerCase().indexOf('Hello')!=-1||text.toLowerCase().indexOf('Hi')!=-1||text.toLowerCase().indexOf('Good Evening')!=-1||text.toLowerCase().indexOf('Good Morning')!=-1||text.toLowerCase().indexOf('Good Afternoon')!=-1)
 	{
-			var gender=getGender();
-			message="Welcome"+gender;
+			var user=getGender();
+			message="Welcome"+user;
 			sendMessage(recipientId, message);
 			return true;
 	}
