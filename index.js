@@ -55,27 +55,11 @@ function sendMessage(recipientId, message) {
     });
 };
 
-function getGender() {
-	request({
-        url: "https://graph.facebook.com/v2.6/me",
-        qs: {access_token:token},
-        method: 'GET',
-
-},function(error, response, body) {
-        if (error) {
-            console.log('Error sending message: ', error);
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error);
-        }
-    });
-return json;
-}
-
 function social(recipientId, text) {
     
 	if(text.indexOf('Hello')!=-1||text.indexOf('Hi')!=-1)
 	{
-			message="Welcome sir, how may i be of assistance?";
+			var message="Welcome sir, how may i be of assistance?";
 			sendMessage(recipientId, message);
 			return true;
 	}
