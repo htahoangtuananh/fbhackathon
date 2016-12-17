@@ -73,7 +73,7 @@ return json;
 
 function social(recipientId, text) {
     
-	if(text.toLowerCase().indexOf('Hello')!=-1||text.toLowerCase().indexOf('Hi')!=-1||text.toLowerCase().indexOf('Good Evening')!=-1||text.toLowerCase().indexOf('Good Morning')!=-1||text.toLowerCase().indexOf('Good Afternoon')!=-1)
+	if(text.indexOf('Hello')!=-1||text.indexOf('Hi')!=-1)
 	{
 			message="Welcome sir, how may i be of assistance?";
 			sendMessage(recipientId, message);
