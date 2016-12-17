@@ -58,7 +58,7 @@ function parseToStringType(text) {
 	var stringType = ["SOCIAL", "DISEASE", "SOLUTION", "GOSSIP"];
 	text = text || "";
 	switch(text) {
-    case (text.toLowerCase().indexOf("Hi")||text.toLowerCase().indexOf("Hello")||text.toLowerCase().indexOf("Good Morning")||text.toLowerCase().indexOf("Good Afternoon")||text.toLowerCase().indexOf("Good Evening")):
+    case (text.toLowerCase().indexOf("Hi")!=-1||text.toLowerCase().indexOf("Hello")!=-1||text.toLowerCase().indexOf("Good Morning")!=-1||text.toLowerCase().indexOf("Good Afternoon")!=-1||text.toLowerCase().indexOf("Good Evening")!=-1):
         return stringType[0]; 
         break;
     default:
