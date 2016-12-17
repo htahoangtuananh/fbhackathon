@@ -25,12 +25,12 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
-        if (event.message.text) {
+        if (event.message && event.message.text) {
 			 if (!social(event.sender.id, event.message.text)) {
 				sendMessage(event.sender.id, {text: event.message.text});
 			 }
         }
-		if (event.message.attachment) {
+		if (event.message.attachments) {
 		//Checking if there are any image attachments 
 			if(event.message.attachments[0].type === "image"){
 			 var imageURL = event.message.attachments[0].payload.url;
@@ -85,16 +85,16 @@ function social(recipientId, text) {
             sendMessage(recipientId, message);
             return true;
         
-    }else if(type==="GOSSIP"){
+    }if(type==="GOSSIP"){
 		message = {
                "text":"HAVE A NICE DAY"
             };
             sendMessage(recipientId, message);
             return true;
 		
-	}else if(type==="DIAGNOSE"){
+	}if(type==="DIAGNOSE"){
 		message = {
-               "text":"Please upload a as clear as possible picture about your problem here in order for me to assist you"
+               "text":"Please upload a as clear as possible picture about your problem here in order for me to be "
             };
             sendMessage(recipientId, message);
             return true;
