@@ -62,12 +62,15 @@ function sendMessage(recipientId, message) {
 };
 
 function parseToStringType(text) {
-	var stringType = ["SOCIAL", "DISEASE", "SOLUTION", "GOSSIP"];
+	var stringType = ["SOCIAL", "DIAGNOSE", "SOLUTION", "GOSSIP"];
 	switch(true) {
     case text.toLowerCase().indexOf("hi")!=-1||text.toLowerCase().indexOf("hello")!=-1||text.toLowerCase().indexOf("good Morning")!=-1||text.toLowerCase().indexOf("good Afternoon")!=-1||text.toLowerCase().indexOf("good Evening")!=-1:
         return stringType[0]; 
         break;
-    default:
+    case text.toLowerCase().indexOf("help")!=-1||text.toLowerCase().indexOf("problem")!=-1||text.toLowerCase().indexOf("decease")!=-1||text.toLowerCase().indexOf("happen")!=-1:
+        return stringType[1]; 
+        break;
+	default:
 		return stringType[3]; 
 		break;
 } 
@@ -77,14 +80,21 @@ function social(recipientId, text) {
     var type = parseToStringType(text);
     if (type==="SOCIAL") {   
             message = {
-               "text":"welcome sir, how may I be of assistance?"
+               "text":"Hello , how may I be of any assistance?"
             };
             sendMessage(recipientId, message);
             return true;
         
     }else if(type==="GOSSIP"){
 		message = {
-               "text":"Lovely weather today sir"
+               "text":"HAVE A NICE DAY"
+            };
+            sendMessage(recipientId, message);
+            return true;
+		
+	}else if(type==="DIAGNOSE"){
+		message = {
+               "text":"Please upload a as clear as possible picture about your problem here in order for me to assist you"
             };
             sendMessage(recipientId, message);
             return true;
