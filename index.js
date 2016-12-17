@@ -54,12 +54,16 @@ function sendMessage(recipientId, message) {
     });
 };
 
-
+function parseToStringType(text) {
+	var stringType = ["SOCIAL", "DISEASE", "SOLUTION", "GOSSIP"];
+	
+	
+}
 
 function social(recipientId, text) {
      text = text || "";
 	 var values = text.split(' ');
-    if (values.length === 3 && values[0] === 'Hi') {   
+    if (values.length === 3 && values[0] === 'kitten') {   
             message = {
                "text":"welcome sir"
             };
