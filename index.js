@@ -55,11 +55,33 @@ function sendMessage(recipientId, message) {
     });
 };
 
+function getGender(recipientId) {
+	request({
+        url: "https://graph.facebook.com/v2.6/"+recipientId,
+        qs: {access_token:token},
+        method: 'GET',
+        json: {
+            field:'first_name,last_name,gender,profile_pic',
+        }		
+		
+},function(error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+return json;
+}
+
 function social(recipientId, text) {
     
-	if(text.indexOf('Hello')!=-1||text.indexOf('Hi')!=-1)
+	if(text.toLowerCase().indexOf('Hello')!=-1||text.toLowerCase().indexOf('Hi')!=-1||text.toLowerCase().indexOf('Good Evening')!=-1||text.toLowerCase().indexOf('Good Morning')!=-1||text.toLowerCase().indexOf('Good Afternoon')!=-1)
 	{
-			var message="Welcome sir, how may i be of assistance?";
+			var user=getGender(recipientId);
+			message={
+				"text":"Welcome"+user
+			}
 			sendMessage(recipientId, message);
 			return true;
 	}
