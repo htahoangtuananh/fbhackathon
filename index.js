@@ -68,14 +68,14 @@ function parseToStringType(text) {
 
 function social(recipientId, text) {
     var type = parseToStringType(text);
-    if (type===0) {   
+    if (type==="SOCIAL") {   
             message = {
                "text":"welcome sir, how may I be of assistance?"
             };
             sendMessage(recipientId, message);
             return true;
         
-    }else if(type===4){
+    }else if(type==="GOSSIP"){
 		message = {
                "text":"Lovely weather today sir"
             };
